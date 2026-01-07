@@ -1,0 +1,308 @@
+@import '../styles/abstracts/index';
+
+.contact-section {
+  padding: $spacing-20 0;
+
+  @include respond-to('lg') {
+    padding: $spacing-24 0;
+  }
+}
+
+.contact__content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-16;
+  margin-top: $spacing-16;
+
+  @include respond-to('lg') {
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-24;
+    margin-top: $spacing-20;
+  }
+}
+
+// Contact Methods Section
+.contact__methods {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-12;
+
+  @include respond-to('lg') {
+    gap: $spacing-16;
+  }
+}
+
+.contact__method {
+  padding: $spacing-12;
+  border: 2px solid rgba($color-primary, 0.1);
+  border-radius: $border-radius-lg;
+  background: linear-gradient(135deg, rgba($color-primary, 0.02) 0%, rgba($color-primary-light, 0.05) 100%);
+  transition: all $animation-duration-normal $ease-elegant;
+
+  &:hover {
+    border-color: rgba($color-primary, 0.25);
+    background: linear-gradient(135deg, rgba($color-primary, 0.05) 0%, rgba($color-primary-light, 0.1) 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba($color-primary, 0.1);
+  }
+}
+
+.contact__method-icon {
+  font-size: $font-size-3xl;
+  margin-bottom: $spacing-4;
+  display: inline-block;
+}
+
+.contact__method-title {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  margin-bottom: $spacing-2;
+}
+
+.contact__method-text {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  line-height: 1.6;
+  margin-bottom: $spacing-4;
+}
+
+.contact__phone-cta {
+  display: inline-block;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  color: $color-primary;
+  text-decoration: none;
+  border-bottom: 2px solid $color-primary;
+  padding-bottom: $spacing-1;
+  transition: all $animation-duration-fast $ease-elegant;
+
+  &:hover {
+    color: $color-primary-dark;
+    border-color: $color-primary-dark;
+    padding-bottom: $spacing-2;
+  }
+}
+
+.contact__map-link {
+  display: inline-block;
+  font-size: $font-size-sm;
+  color: $color-primary;
+  text-decoration: none;
+  border-bottom: 1px solid $color-primary;
+  margin-top: $spacing-2;
+  transition: all $animation-duration-fast $ease-elegant;
+
+  &:hover {
+    color: $color-primary-dark;
+    border-color: $color-primary-dark;
+  }
+}
+
+.contact__method-hours {
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+  line-height: 1.8;
+  margin-top: $spacing-6;
+  padding-top: $spacing-6;
+  border-top: 1px solid rgba($color-primary, 0.1);
+}
+
+// Contact Form Section
+.contact__form-wrapper {
+  padding: $spacing-16;
+  border: 2px solid rgba($color-primary, 0.15);
+  border-radius: $border-radius-lg;
+  background: linear-gradient(135deg, rgba($color-white, 0.8) 0%, rgba($color-primary-light, 0.05) 100%);
+
+  @include respond-to('lg') {
+    padding: $spacing-20;
+  }
+}
+
+.contact__form-title {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+  margin-bottom: $spacing-12;
+}
+
+.contact__form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-8;
+}
+
+// Form Elements
+.form__group {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-2;
+
+  @include respond-to('sm') {
+    &:nth-child(1),
+    &:nth-child(2) {
+      grid-column: 1;
+    }
+
+    &:nth-child(3) {
+      grid-column: 1 / -1;
+    }
+  }
+}
+
+.form__label {
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  font-size: $font-size-sm;
+  display: flex;
+  align-items: center;
+  gap: $spacing-1;
+}
+
+.form__required {
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+.form__optional {
+  color: $color-text-secondary;
+  font-weight: $font-weight-normal;
+  font-size: $font-size-xs;
+}
+
+.form__input,
+.form__textarea {
+  padding: $spacing-4 $spacing-4;
+  border: 2px solid rgba($color-primary, 0.2);
+  border-radius: $border-radius-md;
+  font-size: $font-size-base;
+  font-family: inherit;
+  color: $color-text-primary;
+  background: rgba($color-white, 0.95);
+  transition: all $animation-duration-fast $ease-elegant;
+
+  &::placeholder {
+    color: rgba($color-text-secondary, 0.6);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $color-primary;
+    background: $color-white;
+    box-shadow: 0 0 0 3px rgba($color-primary, 0.1);
+  }
+
+  &--error {
+    border-color: #e74c3c;
+    background: rgba(#e74c3c, 0.05);
+
+    &:focus {
+      box-shadow: 0 0 0 3px rgba(#e74c3c, 0.1);
+    }
+  }
+}
+
+.form__textarea {
+  resize: vertical;
+  min-height: 150px;
+  line-height: 1.6;
+
+  @include respond-to('lg') {
+    min-height: 180px;
+  }
+}
+
+.form__error {
+  color: #e74c3c;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  margin-top: -$spacing-1;
+}
+
+.form__char-count {
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+  text-align: right;
+  margin-top: -$spacing-2;
+}
+
+// Alerts
+.contact__alert {
+  padding: $spacing-4 $spacing-6;
+  border-radius: $border-radius-md;
+  font-weight: $font-weight-semibold;
+  margin-bottom: $spacing-8;
+  animation: slideDown $animation-duration-normal $ease-elegant;
+
+  &--success {
+    background: rgba(#27ae60, 0.1);
+    border-left: 4px solid #27ae60;
+    color: #27ae60;
+  }
+
+  &--error {
+    background: rgba(#e74c3c, 0.1);
+    border-left: 4px solid #e74c3c;
+    color: #e74c3c;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Submit Button
+.contact__submit {
+  margin-top: $spacing-4;
+  width: 100%;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.contact__form-disclaimer {
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+  text-align: center;
+  margin-top: $spacing-4;
+  line-height: 1.5;
+}
+
+// Responsive adjustments
+@include respond-to('md') {
+  .contact__form {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .form__group {
+    &:nth-child(1) {
+      grid-column: 1;
+    }
+
+    &:nth-child(2) {
+      grid-column: 2;
+    }
+
+    &:nth-child(3) {
+      grid-column: 1 / -1;
+    }
+
+    &:nth-child(4) {
+      grid-column: 1 / -1;
+    }
+
+    &:nth-child(5) {
+      grid-column: 1 / -1;
+    }
+  }
+}

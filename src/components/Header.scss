@@ -47,10 +47,15 @@ $header-height-lg: 100px;
     box-shadow: 0 8px 18px -10px rgba($color-black, 0.35);
     border: 1px solid rgba($color-white, 0.5);
     background-color: $color-white;
-    transition: transform $animation-duration-fast $ease-elegant;
+    transition: transform $animation-duration-normal $ease-elegant, 
+                border-color $animation-duration-normal $ease-elegant,
+                box-shadow $animation-duration-normal $ease-elegant;
 
     .header__logo:hover & {
-      transform: scale(1.02);
+      transform: scale(1.2) rotate(10deg);
+      border-color: rgba($color-primary, 0.4);
+      box-shadow: 0 8px 24px -8px rgba($color-black, 0.3),
+                  0 0 20px rgba($color-primary, 0.3);
     }
   }
 
@@ -107,7 +112,8 @@ $header-height-lg: 100px;
       content: '';
       position: absolute;
       bottom: 0;
-      left: 0;
+      left: 50%;
+      transform: translateX(-50%);
       width: 0;
       height: 2px;
       background-color: $color-primary;
@@ -119,7 +125,7 @@ $header-height-lg: 100px;
       color: $color-primary-dark;
 
       &::after {
-        width: 100%;
+        width: 75%;
       }
     }
   }
@@ -137,18 +143,32 @@ $header-height-lg: 100px;
       display: inline-flex;
     }
 
-    transition: transform $animation-duration-fast $ease-elegant, box-shadow $animation-duration-fast $ease-elegant, filter $animation-duration-fast $ease-elegant;
+    background: rgba($color-primary, 0.15) !important;
+    backdrop-filter: blur(12px);
+    border: 1.5px solid rgba($color-primary, 0.35) !important;
+    box-shadow: 0 4px 16px rgba($color-primary, 0.15),
+                inset 0 1px 0 rgba($color-white, 0.3);
+    color: $color-primary-dark !important;
+    font-weight: 600;
+    transition: transform $animation-duration-normal $ease-elegant, 
+                background-color $animation-duration-normal $ease-elegant,
+                border-color $animation-duration-normal $ease-elegant,
+                box-shadow $animation-duration-normal $ease-elegant;
 
     &:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 10px 24px -14px rgba($color-primary, 0.45);
-      filter: brightness(1.03);
+      transform: translateY(-2px);
+      background: rgba($color-primary, 0.25) !important;
+      border-color: rgba($color-primary, 0.5) !important;
+      box-shadow: 0 8px 24px rgba($color-primary, 0.25),
+                  0 0 20px rgba($color-primary-light, 0.2),
+                  inset 0 1px 0 rgba($color-white, 0.4);
     }
 
     &:active {
-      transform: translateY(0);
-      box-shadow: 0 6px 16px -12px rgba($color-primary, 0.4);
-      filter: brightness(0.98);
+      transform: translateY(-1px);
+      background: rgba($color-primary, 0.2) !important;
+      box-shadow: 0 4px 16px rgba($color-primary, 0.18),
+                  inset 0 1px 0 rgba($color-white, 0.3);
     }
   }
 
@@ -162,15 +182,13 @@ $header-height-lg: 100px;
     width: 44px;
     height: 44px;
     padding: $spacing-2;
-    transition: transform $animation-duration-fast $ease-elegant, background-color $animation-duration-fast $ease-elegant;
+    background-color: transparent;
+    transition: transform $animation-duration-fast $ease-elegant;
 
-    &:hover {
-      transform: scale(1.04);
-      background-color: rgba($color-white, 0.85);
-    }
-
+    &:hover,
     &:active {
-      transform: scale(0.98);
+      transform: scale(1.04);
+      background-color: transparent;
     }
 
     @include respond-to('lg') {
@@ -183,7 +201,7 @@ $header-height-lg: 100px;
     width: 24px;
     height: 2px;
     background-color: $color-text-primary;
-    transition: background-color $animation-duration-fast $ease-elegant;
+    transition: background-color $animation-duration-normal $ease-elegant;
 
     &::before,
     &::after {
@@ -193,7 +211,7 @@ $header-height-lg: 100px;
       width: 100%;
       height: 2px;
       background-color: $color-text-primary;
-      transition: transform $animation-duration-fast $ease-elegant, background-color $animation-duration-fast $ease-elegant;
+      transition: transform $animation-duration-normal $ease-elegant;
     }
 
     &::before {
@@ -207,12 +225,6 @@ $header-height-lg: 100px;
 
   &__menu-toggle--open &__menu-icon {
     background-color: transparent;
-
-    &,
-    &::before,
-    &::after {
-      background-color: $color-text-primary;
-    }
 
     &::before {
       transform: translateY(8px) rotate(45deg);
@@ -254,11 +266,26 @@ $header-height-lg: 100px;
       background-color: rgba($color-white, 0.92);
       border: 1px solid rgba($color-black, 0.06);
       box-shadow: 0 10px 30px -16px rgba($color-black, 0.25);
+      transition: all $animation-duration-fast $ease-elegant;
+
+      &:hover {
+        background-color: rgba($color-white, 0.98);
+        border-color: rgba($color-primary, 0.15);
+        transform: translateX(4px);
+      }
 
       &--active {
-        background-color: rgba($color-primary-light, 0.95);
-        border-color: rgba($color-primary, 0.25);
+        background: linear-gradient(135deg, rgba($color-primary, 0.12) 0%, rgba($color-primary-light, 0.18) 100%);
+        border-color: rgba($color-primary, 0.35);
         color: $color-primary-dark;
+        font-weight: $font-weight-semibold;
+        box-shadow: 0 12px 32px -16px rgba($color-primary, 0.35), 
+                    0 0 0 2px rgba($color-primary, 0.08);
+
+        &:hover {
+          background: linear-gradient(135deg, rgba($color-primary, 0.16) 0%, rgba($color-primary-light, 0.22) 100%);
+          transform: translateX(4px);
+        }
       }
     }
 

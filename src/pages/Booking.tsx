@@ -1,5 +1,8 @@
+import { FadeIn } from '../components/FadeIn'
+
 export function Booking() {
   return (
+    <FadeIn>
     <section className="section">
       <div className="container">
         <div className="section__header">
@@ -12,5 +15,6 @@ export function Booking() {
         <p>Időpontfoglalás oldal tartalma...</p>
       </div>
     </section>
+    </FadeIn>
   )
 }

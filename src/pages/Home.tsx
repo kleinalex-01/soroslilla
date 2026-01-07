@@ -1,9 +1,11 @@
 import './Home.scss'
+import { FadeIn } from '../components/FadeIn'
 
 export function Home() {
   return (
     <>
       {/* Hero Section */}
+      <FadeIn>
       <section className="hero">
         <div className="hero__background">
           <div className="hero__overlay"></div>
@@ -36,8 +38,10 @@ export function Home() {
           </svg>
         </div>
       </section>
+      </FadeIn>
 
       {/* Features Section */}
+      <FadeIn delay={0.2}>
       <section className="section features">
         <div className="container">
           <div className="section__header">
@@ -45,30 +49,23 @@ export function Home() {
             <h2 className="section__title">Prémium Kozmetikai Szolgáltatások</h2>
           </div>
           <div className="features__grid">
-            <div className="feature-card">
-              <div className="feature-card__icon">✨</div>
-              <h3 className="feature-card__title">Személyre Szabott</h3>
-              <p className="feature-card__text">
-                Minden kezelést az Ön egyedi igényeihez igazítunk.
-              </p>
-            </div>
-            <div className="feature-card">
-              <div className="feature-card__icon">🌿</div>
-              <h3 className="feature-card__title">Természetes Összetevők</h3>
-              <p className="feature-card__text">
-                Prémium minőségű, természetes alapanyagok használata.
-              </p>
-            </div>
-            <div className="feature-card">
-              <div className="feature-card__icon">💆</div>
-              <h3 className="feature-card__title">Relaxáció</h3>
-              <p className="feature-card__text">
-                Nyugodt, kellemes környezet a teljes kikapcsolódásért.
-              </p>
-            </div>
+            {[
+              { icon: '✨', title: 'Személyre Szabott', text: 'Minden kezelést az Ön egyedi igényeihez igazítunk.' },
+              { icon: '🌿', title: 'Természetes Összetevők', text: 'Prémium minőségű, természetes alapanyagok használata.' },
+              { icon: '💆', title: 'Relaxáció', text: 'Nyugodt, kellemes környezet a teljes kikapcsolódásért.' }
+            ].map((card, index) => (
+              <FadeIn key={index} delay={0.3 + index * 0.1} direction="up">
+                <div className="feature-card">
+                  <div className="feature-card__icon">{card.icon}</div>
+                  <h3 className="feature-card__title">{card.title}</h3>
+                  <p className="feature-card__text">{card.text}</p>
+                </div>
+              </FadeIn>
+            ))}
           </div>
         </div>
       </section>
+      </FadeIn>
     </>
   )
 }
