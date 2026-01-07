@@ -1,0 +1,18 @@
+// =============================================================================
+// Main Content Layout
+// =============================================================================
+
+@use '../abstracts' as *;
+
+.main-content {
+  padding-top: $spacing-20; // offsets fixed header on mobile/tablet
+  min-height: 100vh;
+
+  @include respond-to('md') {
+    padding-top: $spacing-20;
+  }
+
+  @include respond-to('lg') {
+    padding-top: $spacing-24; // larger header height on desktop
+  }
+}

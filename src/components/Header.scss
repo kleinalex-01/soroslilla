@@ -1,37 +1,63 @@
 @use '../styles/abstracts' as *;
 
+$header-height: 80px;
+$header-height-lg: 100px;
+
 .header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: $z-index-fixed;
-  background-color: transparent;
-  transition: background-color $animation-duration-normal $ease-elegant,
-              box-shadow $animation-duration-normal $ease-elegant;
-
-  &--scrolled {
-    background-color: rgba($color-cream, 0.95);
-    backdrop-filter: blur(10px);
-    box-shadow: $shadow-sm;
-  }
+  background: linear-gradient(135deg, rgba($color-cream, 0.98) 0%, rgba($color-primary-light, 0.92) 100%);
+  box-shadow: $shadow-sm;
+  transition: box-shadow $animation-duration-normal $ease-elegant;
 
   &__container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 80px;
+    height: $header-height;
 
     @include respond-to('lg') {
-      height: 100px;
+      height: $header-height-lg;
     }
   }
 
   &__logo {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
     text-decoration: none;
     line-height: 1.1;
+    gap: $spacing-3;
+    transition: transform $animation-duration-fast $ease-elegant, filter $animation-duration-fast $ease-elegant;
+
+    &:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.02);
+    }
+  }
+
+  &__logo-mark {
+    width: 46px;
+    height: 46px;
+    border-radius: $border-radius-full;
+    object-fit: cover;
+    box-shadow: 0 8px 18px -10px rgba($color-black, 0.35);
+    border: 1px solid rgba($color-white, 0.5);
+    background-color: $color-white;
+    transition: transform $animation-duration-fast $ease-elegant;
+
+    .header__logo:hover & {
+      transform: scale(1.02);
+    }
+  }
+
+  &__logo-textgroup {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-1;
   }
 
   &__logo-text {
@@ -110,6 +136,20 @@
     @include respond-to('md') {
       display: inline-flex;
     }
+
+    transition: transform $animation-duration-fast $ease-elegant, box-shadow $animation-duration-fast $ease-elegant, filter $animation-duration-fast $ease-elegant;
+
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px -14px rgba($color-primary, 0.45);
+      filter: brightness(1.03);
+    }
+
+    &:active {
+      transform: translateY(0);
+      box-shadow: 0 6px 16px -12px rgba($color-primary, 0.4);
+      filter: brightness(0.98);
+    }
   }
 
   &__menu-toggle {
@@ -122,6 +162,16 @@
     width: 44px;
     height: 44px;
     padding: $spacing-2;
+    transition: transform $animation-duration-fast $ease-elegant, background-color $animation-duration-fast $ease-elegant;
+
+    &:hover {
+      transform: scale(1.04);
+      background-color: rgba($color-white, 0.85);
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
 
     @include respond-to('lg') {
       display: none;
@@ -143,7 +193,7 @@
       width: 100%;
       height: 2px;
       background-color: $color-text-primary;
-      transition: transform $animation-duration-fast $ease-elegant;
+      transition: transform $animation-duration-fast $ease-elegant, background-color $animation-duration-fast $ease-elegant;
     }
 
     &::before {
@@ -157,6 +207,12 @@
 
   &__menu-toggle--open &__menu-icon {
     background-color: transparent;
+
+    &,
+    &::before,
+    &::after {
+      background-color: $color-text-primary;
+    }
 
     &::before {
       transform: translateY(8px) rotate(45deg);
@@ -172,15 +228,39 @@
     display: flex;
     flex-direction: column;
     position: fixed;
-    top: 80px;
+    top: $header-height;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: $color-cream;
-    padding: $spacing-8 $spacing-6;
+    background: radial-gradient(circle at 20% 20%, rgba($color-primary-light, 0.18), transparent 45%),
+                radial-gradient(circle at 80% 10%, rgba($color-accent, 0.16), transparent 40%),
+                rgba($color-cream, 0.96);
+    backdrop-filter: blur(16px);
+    padding: $spacing-10 $spacing-6;
     gap: $spacing-6;
     z-index: $z-index-fixed;
-    animation: slideDown $animation-duration-normal $ease-elegant;
+    animation: slideFadeDown $animation-duration-normal $ease-elegant;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    min-height: calc(100vh - $header-height);
+
+    .header__nav-link {
+      width: min(480px, 90%);
+      font-size: $font-size-xl;
+      padding: $spacing-3 $spacing-3;
+      letter-spacing: $letter-spacing-wider;
+      border-radius: $border-radius-lg;
+      background-color: rgba($color-white, 0.92);
+      border: 1px solid rgba($color-black, 0.06);
+      box-shadow: 0 10px 30px -16px rgba($color-black, 0.25);
+
+      &--active {
+        background-color: rgba($color-primary-light, 0.95);
+        border-color: rgba($color-primary, 0.25);
+        color: $color-primary-dark;
+      }
+    }
 
     @include respond-to('lg') {
       display: flex;
@@ -189,14 +269,31 @@
       background: none;
       padding: 0;
       animation: none;
+      gap: $spacing-8;
+      backdrop-filter: none;
+      text-align: left;
+      min-height: auto;
+
+      .header__nav-link {
+        width: auto;
+        font-size: $font-size-sm;
+        padding: $spacing-2 0;
+        border-bottom: none;
+        background: none;
+        border: none;
+        box-shadow: none;
+        border-radius: 0;
+      }
     }
   }
 
   &__overlay {
     @include fixed-fill;
-    top: 80px;
-    background-color: $overlay-light;
+    top: $header-height;
+    background-color: rgba($color-black, 0.28);
+    backdrop-filter: blur(12px);
     z-index: $z-index-fixed - 1;
+    transition: opacity $animation-duration-fast $ease-elegant;
 
     @include respond-to('lg') {
       display: none;
@@ -208,6 +305,17 @@
   from {
     opacity: 0;
     transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideFadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
   }
   to {
     opacity: 1;

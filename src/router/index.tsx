@@ -2,7 +2,7 @@ import { createBrowserRouter } from 'react-router-dom'
 import { MainLayout } from '../layouts/MainLayout'
 import { 
   Home, 
-  Services, 
+  Prices, 
   About, 
   Gallery, 
   Contact, 
@@ -21,8 +21,8 @@ export const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: 'szolgaltatasok',
-        element: <Services />,
+        path: 'arak',
+        element: <Prices />,
       },
       {
         path: 'rolam',

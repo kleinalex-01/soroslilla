@@ -4,7 +4,7 @@ import './Header.scss'
 
 const navLinks = [
   { to: '/', label: 'Főoldal' },
-  { to: '/szolgaltatasok', label: 'Szolgáltatások' },
+  { to: '/arak', label: 'Árak' },
   { to: '/rolam', label: 'Rólam' },
   { to: '/galeria', label: 'Galéria' },
   { to: '/kapcsolat', label: 'Kapcsolat' },
@@ -35,8 +35,11 @@ export function Header() {
     <header className={`header ${isScrolled ? 'header--scrolled' : ''}`}>
       <div className="header__container container">
         <Link to="/" className="header__logo" onClick={closeMobileMenu}>
-          <span className="header__logo-text">Healthy Skin</span>
-          <span className="header__logo-subtitle">Kozmetika</span>
+          <img src="/szalon-logo.jpg" alt="Soros Lilla kozmetika logó" className="header__logo-mark" />
+          <div className="header__logo-textgroup">
+            <span className="header__logo-text">Healthy Skin</span>
+            <span className="header__logo-subtitle">Kozmetika</span>
+          </div>
         </Link>
 
         <nav className={`header__nav ${isMobileMenuOpen ? 'header__nav--open' : ''}`}>

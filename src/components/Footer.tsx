@@ -3,17 +3,17 @@ import './Footer.scss'
 
 const quickLinks = [
   { to: '/', label: 'Főoldal' },
-  { to: '/szolgaltatasok', label: 'Szolgáltatások' },
+  { to: '/arak', label: 'Árak' },
   { to: '/rolam', label: 'Rólam' },
   { to: '/galeria', label: 'Galéria' },
   { to: '/kapcsolat', label: 'Kapcsolat' },
 ]
 
 const services = [
-  { to: '/szolgaltatasok#arctisztitas', label: 'Arctisztítás' },
-  { to: '/szolgaltatasok#mezoterapia', label: 'Mezoterápia' },
-  { to: '/szolgaltatasok#arcapolas', label: 'Arcápolás' },
-  { to: '/szolgaltatasok#szortelenites', label: 'Szőrtelenítés' },
+  { to: '/arak#arctisztitas', label: 'Arctisztítás' },
+  { to: '/arak#mezoterapia', label: 'Mezoterápia' },
+  { to: '/arak#arcapolas', label: 'Arcápolás' },
+  { to: '/arak#szortelenites', label: 'Szőrtelenítés' },
 ]
 
 export function Footer() {

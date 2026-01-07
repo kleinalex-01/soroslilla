@@ -1,6 +1,6 @@
 // Pages exports
 export { Home } from './Home'
-export { Services } from './Services'
+export { Prices } from './Services'
 export { About } from './About'
 export { Gallery } from './Gallery'
 export { Contact } from './Contact'
