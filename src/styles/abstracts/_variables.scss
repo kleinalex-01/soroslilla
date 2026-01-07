@@ -1,0 +1,308 @@
+// ==========================================================================
+// Variables
+// ==========================================================================
+// Soros Lilla Cosmetics Salon - Custom Variables
+
+// -----------------------------------------------------------------------------
+// Colors - Soft Beige & Pink Palette
+// -----------------------------------------------------------------------------
+
+// Primary colors (Soft Pink)
+$color-primary: #d4a5a5;           // Dusty rose pink
+$color-primary-light: #f0d9d9;     // Light blush pink
+$color-primary-dark: #b07d7d;      // Deep rose
+
+// Secondary colors (Soft Beige/Nude)
+$color-secondary: #c9b8a8;         // Warm beige
+$color-secondary-light: #e8ddd4;   // Light cream beige
+$color-secondary-dark: #a89585;    // Taupe
+
+// Accent colors
+$color-accent: #e8c4c4;            // Soft blush
+$color-accent-alt: #f5e6e0;        // Peachy cream
+
+// Neutral colors (Warm tones)
+$color-white: #ffffff;
+$color-black: #2d2a26;             // Warm black
+$color-cream: #faf8f5;             // Warm white/cream
+$color-gray-100: #f7f5f3;          // Lightest warm gray
+$color-gray-200: #ebe7e3;
+$color-gray-300: #d9d4cf;
+$color-gray-400: #b8b2ab;
+$color-gray-500: #8f8880;
+$color-gray-600: #6b655e;
+$color-gray-700: #4d4842;
+$color-gray-800: #363330;
+$color-gray-900: #2d2a26;          // Darkest warm gray
+
+// Semantic colors
+$color-success: #8fbc8f;           // Soft sage green
+$color-warning: #deb887;           // Burlywood
+$color-error: #cd8b8b;             // Soft coral red
+$color-info: #a8c5d4;              // Soft blue
+
+// Background colors
+$color-background: $color-cream;
+$color-background-alt: $color-gray-100;
+
+// Text colors
+$color-text-primary: $color-gray-900;
+$color-text-secondary: $color-gray-600;
+$color-text-muted: $color-gray-500;
+$color-text-inverse: $color-white;
+
+// -----------------------------------------------------------------------------
+// Typography
+// -----------------------------------------------------------------------------
+
+// Font families
+$font-family-primary: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+$font-family-heading: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+$font-family-mono: 'Fira Code', 'Consolas', monospace;
+
+// Font sizes
+$font-size-base: 1rem !default; // 16px
+$font-size-xs: 0.75rem !default; // 12px
+$font-size-sm: 0.875rem !default; // 14px
+$font-size-md: 1rem !default; // 16px
+$font-size-lg: 1.125rem !default; // 18px
+$font-size-xl: 1.25rem !default; // 20px
+$font-size-2xl: 1.5rem !default; // 24px
+$font-size-3xl: 1.875rem !default; // 30px
+$font-size-4xl: 2.25rem !default; // 36px
+$font-size-5xl: 3rem !default; // 48px
+$font-size-6xl: 3.75rem !default; // 60px
+
+// Font weights
+$font-weight-light: 300 !default;
+$font-weight-normal: 400 !default;
+$font-weight-medium: 500 !default;
+$font-weight-semibold: 600 !default;
+$font-weight-bold: 700 !default;
+
+// Line heights
+$line-height-tight: 1.25 !default;
+$line-height-base: 1.5 !default;
+$line-height-relaxed: 1.75 !default;
+
+// Letter spacing
+$letter-spacing-tight: -0.025em !default;
+$letter-spacing-normal: 0 !default;
+$letter-spacing-wide: 0.025em !default;
+$letter-spacing-wider: 0.05em !default;
+$letter-spacing-widest: 0.1em !default;
+
+// -----------------------------------------------------------------------------
+// Spacing
+// -----------------------------------------------------------------------------
+
+$spacing-base: 0.25rem !default; // 4px
+
+$spacing-0: 0 !default;
+$spacing-1: $spacing-base !default; // 4px
+$spacing-2: $spacing-base * 2 !default; // 8px
+$spacing-3: $spacing-base * 3 !default; // 12px
+$spacing-4: $spacing-base * 4 !default; // 16px
+$spacing-5: $spacing-base * 5 !default; // 20px
+$spacing-6: $spacing-base * 6 !default; // 24px
+$spacing-8: $spacing-base * 8 !default; // 32px
+$spacing-10: $spacing-base * 10 !default; // 40px
+$spacing-12: $spacing-base * 12 !default; // 48px
+$spacing-16: $spacing-base * 16 !default; // 64px
+$spacing-20: $spacing-base * 20 !default; // 80px
+$spacing-24: $spacing-base * 24 !default; // 96px
+
+// -----------------------------------------------------------------------------
+// Breakpoints (Chrome DevTools device sizes)
+// -----------------------------------------------------------------------------
+
+$breakpoint-xs: 0;                 // Extra small (phones portrait)
+$breakpoint-sm: 425px;             // Mobile L (phones landscape)
+$breakpoint-md: 768px;             // Tablet
+$breakpoint-lg: 1024px;            // Laptop
+$breakpoint-xl: 1440px;            // Laptop L / Desktop
+$breakpoint-2xl: 2560px;           // 4K
+
+$breakpoints: (
+  'xs': $breakpoint-xs,
+  'sm': $breakpoint-sm,
+  'md': $breakpoint-md,
+  'lg': $breakpoint-lg,
+  'xl': $breakpoint-xl,
+  '2xl': $breakpoint-2xl
+);
+
+// -----------------------------------------------------------------------------
+// Borders
+// -----------------------------------------------------------------------------
+
+$border-width: 1px !default;
+$border-width-2: 2px !default;
+$border-width-4: 4px !default;
+
+$border-radius-none: 0 !default;
+$border-radius-sm: 0.25rem !default; // 4px
+$border-radius-base: 0.5rem !default; // 8px
+$border-radius-md: 0.75rem !default; // 12px
+$border-radius-lg: 1rem !default; // 16px
+$border-radius-xl: 1.5rem !default; // 24px
+$border-radius-2xl: 2rem !default; // 32px
+$border-radius-full: 9999px !default;
+
+$border-color: $color-gray-300 !default;
+
+// -----------------------------------------------------------------------------
+// Shadows
+// -----------------------------------------------------------------------------
+
+$shadow-none: none !default;
+$shadow-sm: 0 1px 2px 0 rgba($color-black, 0.05) !default;
+$shadow-base: 0 1px 3px 0 rgba($color-black, 0.1), 0 1px 2px -1px rgba($color-black, 0.1) !default;
+$shadow-md: 0 4px 6px -1px rgba($color-black, 0.1), 0 2px 4px -2px rgba($color-black, 0.1) !default;
+$shadow-lg: 0 10px 15px -3px rgba($color-black, 0.1), 0 4px 6px -4px rgba($color-black, 0.1) !default;
+$shadow-xl: 0 20px 25px -5px rgba($color-black, 0.1), 0 8px 10px -6px rgba($color-black, 0.1) !default;
+$shadow-2xl: 0 25px 50px -12px rgba($color-black, 0.25) !default;
+
+// -----------------------------------------------------------------------------
+// Transitions
+// -----------------------------------------------------------------------------
+
+$transition-duration-fast: 150ms !default;
+$transition-duration-base: 300ms !default;
+$transition-duration-slow: 500ms !default;
+
+$transition-timing-default: ease !default;
+$transition-timing-in: ease-in !default;
+$transition-timing-out: ease-out !default;
+$transition-timing-in-out: ease-in-out !default;
+
+$transition-base: all $transition-duration-base $transition-timing-in-out !default;
+$transition-fast: all $transition-duration-fast $transition-timing-in-out !default;
+$transition-slow: all $transition-duration-slow $transition-timing-in-out !default;
+
+// -----------------------------------------------------------------------------
+// Z-index
+// -----------------------------------------------------------------------------
+
+$z-index-dropdown: 1000 !default;
+$z-index-sticky: 1020 !default;
+$z-index-fixed: 1030 !default;
+$z-index-modal-backdrop: 1040 !default;
+$z-index-modal: 1050 !default;
+$z-index-popover: 1060 !default;
+$z-index-tooltip: 1070 !default;
+$z-index-toast: 1080 !default;
+
+// -----------------------------------------------------------------------------
+// Container
+// -----------------------------------------------------------------------------
+
+$container-max-width: 1200px;
+$container-padding: $spacing-4;
+
+// -----------------------------------------------------------------------------
+// Fluid Typography (for responsive scaling)
+// -----------------------------------------------------------------------------
+
+$fluid-min-width: 320;              // Mobile min viewport
+$fluid-max-width: 1440;             // Desktop max viewport
+$fluid-min-scale: 1;                // Min scale factor
+$fluid-max-scale: 1.2;              // Max scale factor
+
+// -----------------------------------------------------------------------------
+// Aspect Ratios (use with aspect-ratio CSS property)
+// -----------------------------------------------------------------------------
+
+$aspect-ratio-square: "1 / 1";
+$aspect-ratio-video: "16 / 9";
+$aspect-ratio-portrait: "3 / 4";
+$aspect-ratio-landscape: "4 / 3";
+$aspect-ratio-wide: "21 / 9";
+$aspect-ratio-golden: "1.618 / 1";    // Golden ratio
+
+// -----------------------------------------------------------------------------
+// Touch & Interactive Elements
+// -----------------------------------------------------------------------------
+
+$touch-target-min: 44px;            // Apple/Google recommended minimum
+$input-height-sm: 36px;
+$input-height-md: 44px;
+$input-height-lg: 56px;
+$button-height-sm: 36px;
+$button-height-md: 44px;
+$button-height-lg: 56px;
+
+// -----------------------------------------------------------------------------
+// Form Elements
+// -----------------------------------------------------------------------------
+
+$input-padding-x: $spacing-4;
+$input-padding-y: $spacing-3;
+$input-border-radius: $border-radius-base;
+$input-border-color: $color-gray-300;
+$input-border-color-focus: $color-primary;
+$input-background: $color-white;
+$input-placeholder-color: $color-gray-400;
+$input-focus-ring: 0 0 0 3px rgba($color-primary, 0.15);
+$input-disabled-opacity: 0.6;
+
+// -----------------------------------------------------------------------------
+// Animation & Easing
+// -----------------------------------------------------------------------------
+
+// Elegant easing curves
+$ease-elegant: cubic-bezier(0.4, 0, 0.2, 1);        // Material Design standard
+$ease-smooth: cubic-bezier(0.25, 0.1, 0.25, 1);     // Smooth and natural
+$ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55); // Playful bounce
+$ease-snap: cubic-bezier(0.4, 0, 0, 1);             // Quick snap
+$ease-soft: cubic-bezier(0.36, 0, 0.66, 1);         // Soft and gentle
+
+// Animation durations
+$animation-duration-instant: 100ms;
+$animation-duration-fast: 200ms;
+$animation-duration-normal: 300ms;
+$animation-duration-slow: 500ms;
+$animation-duration-slower: 700ms;
+
+// Stagger delay for sequential animations
+$animation-stagger: 50ms;
+
+// -----------------------------------------------------------------------------
+// Overlay & Backdrop
+// -----------------------------------------------------------------------------
+
+$overlay-light: rgba($color-black, 0.3);
+$overlay-medium: rgba($color-black, 0.5);
+$overlay-dark: rgba($color-black, 0.7);
+$overlay-primary: rgba($color-primary-dark, 0.8);
+$backdrop-blur-sm: blur(4px);
+$backdrop-blur-md: blur(10px);
+$backdrop-blur-lg: blur(20px);
+
+// -----------------------------------------------------------------------------
+// Shadows (Extended - Colored)
+// -----------------------------------------------------------------------------
+
+$shadow-primary-sm: 0 2px 8px rgba($color-primary, 0.15);
+$shadow-primary-md: 0 4px 16px rgba($color-primary, 0.2);
+$shadow-primary-lg: 0 8px 32px rgba($color-primary, 0.25);
+$shadow-soft: 0 2px 15px rgba($color-black, 0.05);
+$shadow-float: 0 10px 40px rgba($color-black, 0.12);
+
+// -----------------------------------------------------------------------------
+// Safe Areas (for notched phones)
+// -----------------------------------------------------------------------------
+
+$safe-area-inset-top: env(safe-area-inset-top, 0px);
+$safe-area-inset-right: env(safe-area-inset-right, 0px);
+$safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
+$safe-area-inset-left: env(safe-area-inset-left, 0px);
+
+// -----------------------------------------------------------------------------
+// Scrollbar
+// -----------------------------------------------------------------------------
+
+$scrollbar-width: 8px;
+$scrollbar-track-color: $color-gray-100;
+$scrollbar-thumb-color: $color-gray-300;
+$scrollbar-thumb-hover-color: $color-gray-400;

@@ -1,0 +1,112 @@
+// ==========================================================================
+// Header
+// ==========================================================================
+// Header layout styles
+
+@use '../abstracts' as *;
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: $z-index-fixed;
+  background-color: rgba($color-white, 0.95);
+  backdrop-filter: blur(10px);
+  transition: $transition-base;
+
+  &--scrolled {
+    box-shadow: $shadow-md;
+  }
+
+  &--transparent {
+    background-color: transparent;
+    
+    &.header--scrolled {
+      background-color: rgba($color-white, 0.95);
+    }
+  }
+
+  &__container {
+    @include flex-between;
+    height: 70px;
+    padding: 0 $container-padding;
+
+    @include respond-to('md') {
+      height: 80px;
+      padding: 0 $spacing-6;
+    }
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    
+    img {
+      height: 40px;
+      width: auto;
+
+      @include respond-to('md') {
+        height: 50px;
+      }
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @include respond-to('lg') {
+      display: flex;
+      align-items: center;
+      gap: $spacing-8;
+    }
+  }
+
+  &__nav-link {
+    color: $color-text-primary;
+    font-weight: $font-weight-medium;
+    text-decoration: none;
+    position: relative;
+    padding: $spacing-2 0;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: $color-primary;
+      transition: width $transition-duration-fast $transition-timing-in-out;
+    }
+
+    &:hover,
+    &--active {
+      color: $color-primary;
+
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: $spacing-4;
+  }
+
+  &__menu-toggle {
+    @include button-reset;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    color: $color-text-primary;
+
+    @include respond-to('lg') {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,95 @@
+// ==========================================================================
+// Home Page
+// ==========================================================================
+// Home page specific styles
+
+@use '../abstracts' as *;
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+
+  &__background {
+    @include absolute-fill;
+    z-index: -1;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    &::after {
+      content: '';
+      @include absolute-fill;
+      background: linear-gradient(
+        135deg,
+        rgba($color-primary-dark, 0.8) 0%,
+        rgba($color-secondary, 0.6) 100%
+      );
+    }
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+    color: $color-white;
+    max-width: 600px;
+  }
+
+  &__title {
+    font-size: $font-size-4xl;
+    margin-bottom: $spacing-4;
+    color: $color-white;
+
+    @include respond-to('md') {
+      font-size: $font-size-5xl;
+    }
+
+    @include respond-to('lg') {
+      font-size: $font-size-6xl;
+    }
+  }
+
+  &__subtitle {
+    font-size: $font-size-lg;
+    opacity: 0.9;
+    margin-bottom: $spacing-8;
+    line-height: $line-height-relaxed;
+
+    @include respond-to('md') {
+      font-size: $font-size-xl;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-4;
+  }
+
+  &__scroll {
+    position: absolute;
+    bottom: $spacing-8;
+    left: 50%;
+    transform: translateX(-50%);
+    color: $color-white;
+    animation: bounce 2s infinite;
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  40% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+  60% {
+    transform: translateX(-50%) translateY(-5px);
+  }
+}

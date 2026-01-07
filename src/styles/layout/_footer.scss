@@ -1,0 +1,145 @@
+// ==========================================================================
+// Footer
+// ==========================================================================
+// Footer layout styles
+
+@use '../abstracts' as *;
+
+.footer {
+  background-color: $color-gray-900;
+  color: $color-white;
+  padding: $spacing-16 0 $spacing-8;
+
+  &__grid {
+    display: grid;
+    gap: $spacing-8;
+    margin-bottom: $spacing-12;
+
+    @include respond-to('md') {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond-to('lg') {
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+    }
+  }
+
+  &__brand {
+    max-width: 300px;
+  }
+
+  &__logo {
+    height: 50px;
+    width: auto;
+    margin-bottom: $spacing-4;
+  }
+
+  &__description {
+    color: $color-gray-400;
+    font-size: $font-size-sm;
+    line-height: $line-height-relaxed;
+  }
+
+  &__title {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+    margin-bottom: $spacing-4;
+    color: $color-white;
+  }
+
+  &__links {
+    @include list-reset;
+  }
+
+  &__link {
+    display: block;
+    color: $color-gray-400;
+    text-decoration: none;
+    padding: $spacing-2 0;
+    font-size: $font-size-sm;
+    transition: color $transition-duration-fast;
+
+    &:hover {
+      color: $color-primary-light;
+    }
+  }
+
+  &__contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: $spacing-3;
+    color: $color-gray-400;
+    font-size: $font-size-sm;
+    margin-bottom: $spacing-3;
+
+    svg {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      color: $color-primary;
+    }
+  }
+
+  &__social {
+    display: flex;
+    gap: $spacing-3;
+    margin-top: $spacing-4;
+  }
+
+  &__social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: $border-radius-full;
+    background-color: $color-gray-800;
+    color: $color-white;
+    transition: $transition-fast;
+
+    &:hover {
+      background-color: $color-primary;
+      transform: translateY(-3px);
+    }
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &__bottom {
+    padding-top: $spacing-8;
+    border-top: 1px solid $color-gray-800;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-4;
+    text-align: center;
+
+    @include respond-to('md') {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__copyright {
+    color: $color-gray-500;
+    font-size: $font-size-sm;
+  }
+
+  &__legal {
+    display: flex;
+    gap: $spacing-4;
+
+    a {
+      color: $color-gray-500;
+      font-size: $font-size-sm;
+      text-decoration: none;
+
+      &:hover {
+        color: $color-primary-light;
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+// ==========================================================================
+// Themes Index
+// ==========================================================================
+// Theme-related styles (dark mode, etc.)
+
+@use '../abstracts' as *;
+
+// CSS Custom Properties for theming
+:root {
+  // Colors
+  --color-primary: #{$color-primary};
+  --color-primary-light: #{$color-primary-light};
+  --color-primary-dark: #{$color-primary-dark};
+  --color-secondary: #{$color-secondary};
+  
+  // Background
+  --color-background: #{$color-background};
+  --color-background-alt: #{$color-background-alt};
+  
+  // Text
+  --color-text-primary: #{$color-text-primary};
+  --color-text-secondary: #{$color-text-secondary};
+  
+  // Border
+  --border-color: #{$border-color};
+  
+  // Shadows
+  --shadow-base: #{$shadow-base};
+  --shadow-lg: #{$shadow-lg};
+}
+
+// Dark mode (prepared for future use)
+// @media (prefers-color-scheme: dark) {
+//   :root {
+//     --color-background: #{$color-gray-900};
+//     --color-background-alt: #{$color-gray-800};
+//     --color-text-primary: #{$color-white};
+//     --color-text-secondary: #{$color-gray-400};
+//     --border-color: #{$color-gray-700};
+//   }
+// }

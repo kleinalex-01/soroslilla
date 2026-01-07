@@ -1,0 +1,38 @@
+// ==========================================================================
+// Container
+// ==========================================================================
+// Container layout component
+
+@use '../abstracts' as *;
+
+.container {
+  width: 100%;
+  max-width: $container-max-width;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $container-padding;
+  padding-right: $container-padding;
+
+  @include respond-to('md') {
+    padding-left: $spacing-6;
+    padding-right: $spacing-6;
+  }
+
+  @include respond-to('lg') {
+    padding-left: $spacing-8;
+    padding-right: $spacing-8;
+  }
+
+  // Variants
+  &--fluid {
+    max-width: none;
+  }
+
+  &--narrow {
+    max-width: 800px;
+  }
+
+  &--wide {
+    max-width: 1400px;
+  }
+}

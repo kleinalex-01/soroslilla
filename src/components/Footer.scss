@@ -1,0 +1,182 @@
+@use '../styles/abstracts' as *;
+
+.footer {
+  background-color: $color-gray-900;
+  color: $color-white;
+  padding: $spacing-16 0 $spacing-8;
+
+  &__grid {
+    display: grid;
+    gap: $spacing-10;
+    margin-bottom: $spacing-12;
+
+    @include respond-to('sm') {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond-to('lg') {
+      grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+      gap: $spacing-8;
+    }
+  }
+
+  &__brand {
+    @include respond-to('sm') {
+      grid-column: span 2;
+    }
+
+    @include respond-to('lg') {
+      grid-column: span 1;
+    }
+  }
+
+  &__logo {
+    display: inline-flex;
+    flex-direction: column;
+    text-decoration: none;
+    margin-bottom: $spacing-4;
+    line-height: 1.1;
+  }
+
+  &__logo-text {
+    font-family: $font-family-heading;
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-semibold;
+    color: $color-primary-light;
+    letter-spacing: $letter-spacing-wide;
+  }
+
+  &__logo-subtitle {
+    font-family: $font-family-primary;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-normal;
+    color: $color-gray-400;
+    text-transform: uppercase;
+    letter-spacing: $letter-spacing-widest;
+  }
+
+  &__description {
+    color: $color-gray-400;
+    font-size: $font-size-sm;
+    line-height: $line-height-relaxed;
+    margin-bottom: $spacing-6;
+    max-width: 300px;
+  }
+
+  &__social {
+    display: flex;
+    gap: $spacing-3;
+  }
+
+  &__social-link {
+    @include flex-center;
+    width: 40px;
+    height: 40px;
+    border-radius: $border-radius-full;
+    background-color: $color-gray-800;
+    color: $color-white;
+    transition: background-color $animation-duration-fast $ease-elegant,
+                transform $animation-duration-fast $ease-elegant;
+
+    &:hover {
+      background-color: $color-primary;
+      transform: translateY(-3px);
+    }
+  }
+
+  &__column {
+    min-width: 0;
+  }
+
+  &__title {
+    font-family: $font-family-heading;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+    color: $color-white;
+    margin-bottom: $spacing-4;
+  }
+
+  &__links {
+    @include list-reset;
+  }
+
+  &__link {
+    display: inline-block;
+    color: $color-gray-400;
+    text-decoration: none;
+    font-size: $font-size-sm;
+    padding: $spacing-2 0;
+    transition: color $animation-duration-fast $ease-elegant;
+
+    &:hover {
+      color: $color-primary-light;
+    }
+  }
+
+  &__contact {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-3;
+  }
+
+  &__contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: $spacing-3;
+    color: $color-gray-400;
+    font-size: $font-size-sm;
+
+    svg {
+      flex-shrink: 0;
+      color: $color-primary;
+      margin-top: 2px;
+    }
+
+    a {
+      color: $color-gray-400;
+      text-decoration: none;
+      transition: color $animation-duration-fast $ease-elegant;
+
+      &:hover {
+        color: $color-primary-light;
+      }
+    }
+  }
+
+  &__bottom {
+    padding-top: $spacing-8;
+    border-top: 1px solid $color-gray-800;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-4;
+    text-align: center;
+
+    @include respond-to('md') {
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: left;
+    }
+  }
+
+  &__copyright {
+    color: $color-gray-500;
+    font-size: $font-size-sm;
+  }
+
+  &__legal {
+    display: flex;
+    gap: $spacing-6;
+
+    a {
+      color: $color-gray-500;
+      font-size: $font-size-sm;
+      text-decoration: none;
+      transition: color $animation-duration-fast $ease-elegant;
+
+      &:hover {
+        color: $color-primary-light;
+      }
+    }
+  }
+}
