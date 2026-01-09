@@ -1,11 +1,12 @@
 import { useState } from 'react'
-import './ImageGallery.css'
+import './ImageGallery.scss'
 
 interface ImageGalleryProps {
   images: Array<{
     src: string
     alt: string
     title?: string
+    transform?: string
   }>
   columns?: number
 }
@@ -116,6 +117,7 @@ export function ImageGallery({ images, columns = 2 }: ImageGalleryProps) {
               src={image.src}
               alt={image.alt}
               className="gallery__image"
+              style={image.transform ? { transform: image.transform } : undefined}
             />
             {image.title && <div className="gallery__title">{image.title}</div>}
             <div className="gallery__overlay">

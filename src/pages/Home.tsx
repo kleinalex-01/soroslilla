@@ -7,35 +7,30 @@ export function Home() {
       {/* Hero Section */}
       <FadeIn>
       <section className="hero">
-        <div className="hero__background">
-          <div className="hero__overlay"></div>
-        </div>
-        <div className="container hero__container">
-          <div className="hero__content">
-            <span className="hero__subtitle">Üdvözöljük</span>
-            <h1 className="hero__title">
-              Szépség és<br />
-              <span className="hero__title-accent">Harmónia</span>
-            </h1>
-            <p className="hero__description">
-              Professzionális kozmetikai kezelések a szép és egészséges bőrért. 
-              Személyre szabott megoldások minden bőrtípusra.
-            </p>
-            <div className="hero__actions">
-              <a href="/idopontfoglalas" className="btn btn--primary btn--lg">
-                Időpontfoglalás
-              </a>
-              <a href="/szolgaltatasok" className="btn btn--secondary btn--lg">
-                Szolgáltatások
-              </a>
-            </div>
+        <video 
+          className="hero__video" 
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+        >
+          <source src="/szalon-video.mp4" type="video/mp4" />
+        </video>
+        <div className="hero__overlay"></div>
+        
+        <div className="hero__content">
+          <div className="hero__logo">
+            <img src="/szalon-logo.jpg" alt="Soros Lilla Kozmetika" />
           </div>
         </div>
-        <div className="hero__scroll">
-          <span>Görgess le</span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M12 5v14M5 12l7 7 7-7"/>
-          </svg>
+
+        <div className="hero__cta">
+          <a href="/idopontfoglalas" className="hero__btn">
+            <span>Időpontfoglalás</span>
+          </a>
+          <a href="/arak" className="hero__btn">
+            <span>Áraink</span>
+          </a>
         </div>
       </section>
       </FadeIn>
@@ -62,6 +57,47 @@ export function Home() {
                 </div>
               </FadeIn>
             ))}
+          </div>
+        </div>
+      </section>
+      </FadeIn>
+
+      {/* CTA Navigation Section */}
+      <FadeIn delay={0.4}>
+      <section className="section cta-nav">
+        <div className="container">
+          <div className="section__header">
+            <span className="section__subtitle">Fedezze fel</span>
+            <h2 className="section__title">Tekintse meg kínálatunkat</h2>
+            <p className="section__description">
+              Ismerje meg szolgáltatásainkat, tekintse meg korábbi munkáinkat és foglaljon időpontot könnyedén.
+            </p>
+          </div>
+          <div className="cta-nav__grid">
+            <a href="/arak" className="cta-nav__card">
+              <div className="cta-nav__icon">💰</div>
+              <h3 className="cta-nav__title">Áraink</h3>
+              <p className="cta-nav__text">Tekintse meg szolgáltatásaink árait és kezelési lehetőségeinket.</p>
+              <span className="cta-nav__arrow">→</span>
+            </a>
+            <a href="/galeria" className="cta-nav__card">
+              <div className="cta-nav__icon">🖼️</div>
+              <h3 className="cta-nav__title">Galéria</h3>
+              <p className="cta-nav__text">Inspirálódjon korábbi munkáink képeiből.</p>
+              <span className="cta-nav__arrow">→</span>
+            </a>
+            <a href="/idopontfoglalas" className="cta-nav__card">
+              <div className="cta-nav__icon">📅</div>
+              <h3 className="cta-nav__title">Időpontfoglalás</h3>
+              <p className="cta-nav__text">Foglaljon időpontot online, egyszerűen és gyorsan.</p>
+              <span className="cta-nav__arrow">→</span>
+            </a>
+            <a href="/kapcsolat" className="cta-nav__card">
+              <div className="cta-nav__icon">📧</div>
+              <h3 className="cta-nav__title">Kapcsolat</h3>
+              <p className="cta-nav__text">Vegye fel velünk a kapcsolatot kérdéseivel.</p>
+              <span className="cta-nav__arrow">→</span>
+            </a>
           </div>
         </div>
       </section>

@@ -6,127 +6,133 @@
   min-height: 100vh;
   min-height: 100dvh;
   display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
   overflow: hidden;
 
-  &__background {
-    @include absolute-fill;
-    background: linear-gradient(135deg, $color-secondary-light 0%, $color-primary-light 50%, $color-accent 100%);
-    z-index: -1;
+  &__video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
   }
 
   &__overlay {
     @include absolute-fill;
-    background: radial-gradient(ellipse at 30% 20%, transparent 0%, rgba($color-cream, 0.3) 100%);
-  }
-
-  &__container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding-top: 100px;
-    padding-bottom: $spacing-16;
-
-    @include respond-to('md') {
-      text-align: left;
-      justify-content: flex-start;
-    }
+    background: rgba(0, 0, 0, 0.4);
+    z-index: -1;
   }
 
   &__content {
-    max-width: 600px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 100px;
+    padding-bottom: $spacing-12;
   }
 
-  &__subtitle {
-    display: inline-block;
-    font-family: $font-family-primary;
-    font-size: $font-size-sm;
-    font-weight: $font-weight-medium;
-    color: $color-primary-dark;
-    text-transform: uppercase;
-    letter-spacing: $letter-spacing-widest;
-    margin-bottom: $spacing-4;
+  &__logo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba($color-text-primary, 0.3);
+    border: 4px solid rgba($color-white, 0.3);
+    animation: float 3s ease-in-out infinite;
 
     @include respond-to('md') {
-      font-size: $font-size-base;
-    }
-  }
-
-  &__title {
-    font-family: $font-family-heading;
-    font-size: $font-size-4xl;
-    font-weight: $font-weight-bold;
-    color: $color-text-primary;
-    line-height: $line-height-tight;
-    margin-bottom: $spacing-6;
-
-    @include respond-to('md') {
-      font-size: $font-size-5xl;
+      width: 250px;
+      height: 250px;
     }
 
     @include respond-to('lg') {
-      font-size: $font-size-6xl;
+      width: 300px;
+      height: 300px;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   }
 
-  &__title-accent {
-    color: $color-primary-dark;
-    font-style: italic;
-  }
-
-  &__description {
-    font-size: $font-size-lg;
-    color: $color-text-secondary;
-    line-height: $line-height-relaxed;
-    margin-bottom: $spacing-8;
-    max-width: 500px;
-
-    @include respond-to('md') {
-      font-size: $font-size-xl;
-    }
-  }
-
-  &__actions {
+  &__cta {
     display: flex;
     flex-direction: column;
     gap: $spacing-4;
+    padding-bottom: $spacing-12;
+    z-index: 1;
 
     @include respond-to('sm') {
       flex-direction: row;
+      gap: $spacing-6;
     }
   }
 
-  &__scroll {
-    position: absolute;
-    bottom: $spacing-8;
-    left: 50%;
-    transform: translateX(-50%);
+  &__btn {
+    position: relative;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: $spacing-2;
-    color: $color-text-secondary;
-    font-size: $font-size-xs;
-    text-transform: uppercase;
-    letter-spacing: $letter-spacing-wider;
-    animation: bounce 2s infinite;
+    justify-content: center;
+    padding: $spacing-4 $spacing-8;
+    background: rgba($color-white, 0.1);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba($color-white, 0.2);
+    border-radius: $border-radius-lg;
+    color: $color-white;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+    text-decoration: none;
+    transition: all $animation-duration-normal $ease-elegant;
+    overflow: hidden;
 
-    svg {
-      opacity: 0.7;
+    @include respond-to('md') {
+      padding: $spacing-5 $spacing-10;
+      font-size: $font-size-xl;
+    }
+
+    span {
+      position: relative;
+      z-index: 1;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba($color-primary, 0.2);
+      opacity: 0;
+      transition: opacity $animation-duration-normal $ease-elegant;
+    }
+
+    &:hover {
+      transform: translateY(-2px);
+      border-color: rgba($color-white, 0.4);
+      box-shadow: 0 8px 24px rgba($color-primary, 0.3);
+
+      &::before {
+        opacity: 1;
+      }
+    }
+
+    &:active {
+      transform: translateY(0);
     }
   }
 }
 
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateX(-50%) translateY(0);
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
   }
-  40% {
-    transform: translateX(-50%) translateY(-10px);
-  }
-  60% {
-    transform: translateX(-50%) translateY(-5px);
+  50% {
+    transform: translateY(-10px);
   }
 }
 
@@ -170,5 +176,98 @@
     font-size: $font-size-base;
     color: $color-text-secondary;
     line-height: $line-height-relaxed;
+  }
+}
+
+// CTA Navigation Section
+.cta-nav {
+  background-color: $color-white;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-6;
+
+    @include respond-to('sm') {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond-to('lg') {
+      grid-template-columns: repeat(4, 1fr);
+      gap: $spacing-8;
+    }
+  }
+
+  &__card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: $spacing-8;
+    background: linear-gradient(135deg, rgba($color-primary-light, 0.05) 0%, rgba($color-secondary-light, 0.05) 100%);
+    border: 2px solid rgba($color-primary, 0.1);
+    border-radius: $border-radius-xl;
+    text-decoration: none;
+    overflow: hidden;
+    transition: all $animation-duration-normal $ease-elegant;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba($color-primary, 0.08) 0%, rgba($color-secondary, 0.08) 100%);
+      opacity: 0;
+      transition: opacity $animation-duration-normal $ease-elegant;
+    }
+
+    &:hover {
+      transform: translateY(-8px);
+      border-color: rgba($color-primary, 0.3);
+      box-shadow: 0 12px 32px rgba($color-primary, 0.15);
+
+      &::before {
+        opacity: 1;
+      }
+
+      .cta-nav__arrow {
+        transform: translateX(8px);
+      }
+    }
+  }
+
+  &__icon {
+    font-size: 3rem;
+    margin-bottom: $spacing-4;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__title {
+    font-family: $font-family-heading;
+    font-size: $font-size-xl;
+    font-weight: $font-weight-semibold;
+    color: $color-text-primary;
+    margin-bottom: $spacing-3;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__text {
+    font-size: $font-size-sm;
+    color: $color-text-secondary;
+    line-height: $line-height-relaxed;
+    margin-bottom: $spacing-4;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__arrow {
+    font-size: $font-size-xl;
+    color: $color-primary;
+    font-weight: $font-weight-bold;
+    transition: transform $animation-duration-normal $ease-elegant;
+    position: relative;
+    z-index: 1;
   }
 }

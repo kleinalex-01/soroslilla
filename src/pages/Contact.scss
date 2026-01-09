@@ -2,6 +2,7 @@
 
 .contact-section {
   padding: $spacing-20 0;
+  overflow-x: hidden;
 
   @include respond-to('lg') {
     padding: $spacing-24 0;
@@ -13,6 +14,7 @@
   grid-template-columns: 1fr;
   gap: $spacing-16;
   margin-top: $spacing-16;
+  width: 100%;
 
   @include respond-to('lg') {
     grid-template-columns: 1fr 1fr;
@@ -26,6 +28,7 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: $spacing-12;
+  width: 100%;
 
   @include respond-to('lg') {
     gap: $spacing-16;
@@ -33,11 +36,17 @@
 }
 
 .contact__method {
-  padding: $spacing-12;
+  padding: $spacing-6;
   border: 2px solid rgba($color-primary, 0.1);
   border-radius: $border-radius-lg;
   background: linear-gradient(135deg, rgba($color-primary, 0.02) 0%, rgba($color-primary-light, 0.05) 100%);
   transition: all $animation-duration-normal $ease-elegant;
+  width: 100%;
+  box-sizing: border-box;
+
+  @include respond-to('md') {
+    padding: $spacing-12;
+  }
 
   &:hover {
     border-color: rgba($color-primary, 0.25);
@@ -48,34 +57,52 @@
 }
 
 .contact__method-icon {
-  font-size: $font-size-3xl;
+  font-size: $font-size-2xl;
   margin-bottom: $spacing-4;
   display: inline-block;
+
+  @include respond-to('md') {
+    font-size: $font-size-3xl;
+  }
 }
 
 .contact__method-title {
-  font-size: $font-size-lg;
+  font-size: $font-size-base;
   font-weight: $font-weight-semibold;
   color: $color-text-primary;
   margin-bottom: $spacing-2;
+
+  @include respond-to('md') {
+    font-size: $font-size-lg;
+  }
 }
 
 .contact__method-text {
-  font-size: $font-size-sm;
+  font-size: $font-size-xs;
   color: $color-text-secondary;
   line-height: 1.6;
   margin-bottom: $spacing-4;
+  word-wrap: break-word;
+
+  @include respond-to('md') {
+    font-size: $font-size-sm;
+  }
 }
 
 .contact__phone-cta {
   display: inline-block;
-  font-size: $font-size-lg;
+  font-size: $font-size-base;
   font-weight: $font-weight-bold;
   color: $color-primary;
   text-decoration: none;
   border-bottom: 2px solid $color-primary;
   padding-bottom: $spacing-1;
   transition: all $animation-duration-fast $ease-elegant;
+  word-break: break-all;
+
+  @include respond-to('md') {
+    font-size: $font-size-lg;
+  }
 
   &:hover {
     color: $color-primary-dark;
@@ -86,12 +113,16 @@
 
 .contact__map-link {
   display: inline-block;
-  font-size: $font-size-sm;
+  font-size: $font-size-xs;
   color: $color-primary;
   text-decoration: none;
   border-bottom: 1px solid $color-primary;
   margin-top: $spacing-2;
   transition: all $animation-duration-fast $ease-elegant;
+
+  @include respond-to('md') {
+    font-size: $font-size-sm;
+  }
 
   &:hover {
     color: $color-primary-dark;
@@ -110,10 +141,16 @@
 
 // Contact Form Section
 .contact__form-wrapper {
-  padding: $spacing-16;
+  padding: $spacing-6;
   border: 2px solid rgba($color-primary, 0.15);
   border-radius: $border-radius-lg;
   background: linear-gradient(135deg, rgba($color-white, 0.8) 0%, rgba($color-primary-light, 0.05) 100%);
+  width: 100%;
+  box-sizing: border-box;
+
+  @include respond-to('md') {
+    padding: $spacing-12;
+  }
 
   @include respond-to('lg') {
     padding: $spacing-20;
@@ -131,6 +168,7 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: $spacing-8;
+  width: 100%;
 }
 
 // Form Elements
@@ -173,6 +211,7 @@
 
 .form__input,
 .form__textarea {
+  width: 100%;
   padding: $spacing-4 $spacing-4;
   border: 2px solid rgba($color-primary, 0.2);
   border-radius: $border-radius-md;
@@ -181,6 +220,7 @@
   color: $color-text-primary;
   background: rgba($color-white, 0.95);
   transition: all $animation-duration-fast $ease-elegant;
+  box-sizing: border-box;
 
   &::placeholder {
     color: rgba($color-text-secondary, 0.6);
@@ -263,6 +303,7 @@
 .contact__submit {
   margin-top: $spacing-4;
   width: 100%;
+  box-sizing: border-box;
 
   &:disabled {
     opacity: 0.6;
