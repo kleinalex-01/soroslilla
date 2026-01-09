@@ -39,7 +39,9 @@ export default defineConfig({
         ]
       },
       workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,png,svg,woff,woff2}'],
+        globPatterns: ['**/*.{js,css,html,ico,svg,woff,woff2}'],
+        globIgnores: ['**/szalon-video.mp4', '**/gallery/**', '**/szalon-*.{jpg,png}'],
+        maximumFileSizeToCacheInBytes: 3 * 1024 * 1024, // 3MB max
         runtimeCaching: [
           {
             urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
@@ -70,14 +72,26 @@ export default defineConfig({
             }
           },
           {
-            urlPattern: /\.(?:png|jpg|jpeg|svg|gif|webp)$/i,
+            urlPattern: /\.(?:png|jpg|jpeg|webp)$/i,
             handler: 'CacheFirst',
             options: {
               cacheName: 'images-cache',
               expiration: {
-                maxEntries: 50,
+                maxEntries: 60,
                 maxAgeSeconds: 60 * 60 * 24 * 30 // 30 days
               }
+            }
+          },
+          {
+            urlPattern: /\.(?:mp4|webm)$/i,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'video-cache',
+              expiration: {
+                maxEntries: 5,
+                maxAgeSeconds: 60 * 60 * 24 * 7 // 7 days
+              },
+              rangeRequests: true
             }
           }
         ]
